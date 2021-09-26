@@ -14,8 +14,15 @@ const Cart = (props) => {
     }
     return (
         <div className="rounded-lg p-4 my-4 bg-gray-100">
-            <h1 className="font-bold">Total Item selected: {totalQuantity}</h1>
-            <h1 className="font-bold">Total Price: {total}</h1>
+            <h1 className="font-bold pb-2">Total Item selected: {totalQuantity}</h1>
+            <h1 className="font-bold pb-2">Total Price: ${total}</h1>
+            <div className="border-4 rounded-lg my-2">
+                {
+                    selectedPlayers.map(player => <CartPlayers
+                        player={player}
+                    />)
+                }
+            </div>
         </div>
     );
 };
