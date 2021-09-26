@@ -30,8 +30,8 @@ const Players = () => {
 
 
     return (
-        <div className="flex">
-            <div className="w-2/3 grid grid-cols-3">
+        <div className="md:flex">
+            <div className="md:w-2/3 grid md:grid-cols-3 grid-cols-2">
                 {
                     players.map(player => <Player
                         player={player}
@@ -40,7 +40,7 @@ const Players = () => {
                     />)
                 }
             </div>
-            <div className="w-1/3">
+            <div className="md:w-1/3">
                 <Cart
                     selectedPlayers={selectedPlayers}
                 />
