@@ -20,6 +20,7 @@ const Cart = (props) => {
                 {
                     selectedPlayers.map(player => <CartPlayers
                         player={player}
+                        key={Math.random()}
                     />)
                 }
             </div>
