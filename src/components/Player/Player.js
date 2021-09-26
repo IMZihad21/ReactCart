@@ -4,7 +4,7 @@ import Rating from 'react-rating';
 const Player = (props) => {
     const { name, title, image, rarity, element, weapontype, region, birthday, price } = props.player;
     return (
-        <div className="bg-gray-100 rounded-xl items-center p-3 mx-2 my-4">
+        <div className="bg-gray-200 shadow-lg rounded-xl items-center p-3 mx-2 my-4">
             <img className="w-1/2 mx-auto border rounded-full " src={image} alt={name} />
             <Rating
                 initialRating={rarity}
