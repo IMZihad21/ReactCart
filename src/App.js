@@ -4,7 +4,7 @@ import Players from './components/Players/Players';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App mx-24">
       <Header/>
       <Players/>
     </div>
