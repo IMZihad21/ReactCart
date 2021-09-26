@@ -13,8 +13,8 @@ const Players = () => {
 
 
     return (
-        <div>
-            <div>
+        <div className="flex">
+            <div className="w-2/3 grid grid-cols-3 p-2">
                 {
                     players.map(player => <Player
                         player={player}
@@ -22,7 +22,7 @@ const Players = () => {
                     />)
                 }
             </div>
-            <div>
+            <div className="w-1/3">
                 <Cart />
             </div>
         </div>
