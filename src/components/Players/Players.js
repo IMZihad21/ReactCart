@@ -13,8 +13,19 @@ const Players = () => {
     }, [])
 
     const handleAddToCart = (player) => {
-        const newCart = [...selectedPlayers, player];
-        setSelectedPlayers(newCart);
+        if (selectedPlayers.indexOf(player) !== -1) {
+            let newPlayers = [...selectedPlayers];
+            newPlayers.forEach(item => {
+                if (item.id === player.id){
+                  item.quantity += 1;
+                }
+               });
+            setSelectedPlayers([...newPlayers]);
+        }
+        else {
+            player.quantity = 1;
+            setSelectedPlayers([...selectedPlayers, player]);
+        }
     }
 
 
@@ -32,7 +43,7 @@ const Players = () => {
             <div className="w-1/3">
                 <Cart
                     selectedPlayers={selectedPlayers}
-                 />
+                />
             </div>
         </div>
     );
