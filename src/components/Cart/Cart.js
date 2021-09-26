@@ -20,6 +20,9 @@ const Cart = (props) => {
                     />)
                 }
             </div>
+            <button className="bg-green-500 hover:bg-green-700 text-white font-bold px-24 py-3 my-2 border border-green-700 rounded-lg">
+                Buy Now
+            </button>
         </div>
     );
 };
