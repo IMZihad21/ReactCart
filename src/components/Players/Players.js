@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { getStorage, setStorage } from '../../utility/localStorage/localStorage';
 import Cart from '../Cart/Cart';
 import Player from '../Player/Player';
 
@@ -10,21 +11,32 @@ const Players = () => {
         fetch('./players.JSON')
             .then(res => res.json())
             .then(data => setPlayers(data));
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        const storage = getStorage();
+        setSelectedPlayers(storage);
+    }, []);
+
+    useEffect(() => {
+        if (selectedPlayers.length !== 0){
+            setStorage(selectedPlayers);
+        }
+    }, [selectedPlayers]);
 
     const handleAddToCart = (player) => {
         if (selectedPlayers.indexOf(player) !== -1) {
-            let newPlayers = [...selectedPlayers];
+            let newPlayers = [ ...selectedPlayers ];
             newPlayers.forEach(item => {
-                if (item.id === player.id){
-                  item.quantity += 1;
+                if (item.id === player.id) {
+                    item.quantity += 1;
                 }
-               });
-            setSelectedPlayers([...newPlayers]);
+            });
+            setSelectedPlayers([ ...newPlayers ]);
         }
         else {
             player.quantity = 1;
-            setSelectedPlayers([...selectedPlayers, player]);
+            setSelectedPlayers([ ...selectedPlayers, player ]);
         }
     }
 
