@@ -1,7 +1,7 @@
 import CartPlayers from '../CartPlayers/CartPlayers';
 
 const Cart = (props) => {
-    const { selectedPlayers } = props;
+    const { selectedPlayers, handleRemoveFromCart } = props;
     let totalQuantity = 0;
     let totalPrice = 0;
     for (const player of selectedPlayers) {
@@ -17,6 +17,7 @@ const Cart = (props) => {
                     selectedPlayers.map(player => <CartPlayers
                         player={player}
                         key={Math.random()}
+                        handleRemoveFromCart={handleRemoveFromCart}
                     />)
                 }
             </div>

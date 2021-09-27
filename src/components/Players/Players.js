@@ -19,9 +19,7 @@ const Players = () => {
     }, []);
 
     useEffect(() => {
-        if (selectedPlayers.length !== 0){
             setStorage(selectedPlayers);
-        }
     }, [selectedPlayers]);
 
     const handleAddToCart = (player) => {
@@ -40,6 +38,17 @@ const Players = () => {
         }
     }
 
+    const handleRemoveFromCart = player => {
+        const uniqueKey = player.id;
+        let newPlayers = [ ...selectedPlayers ];
+        const matchedPlayer = newPlayers.find(item => item.id === uniqueKey);
+        if (matchedPlayer){
+            const index = newPlayers.indexOf(matchedPlayer);
+            newPlayers.splice(index, 1);
+            setSelectedPlayers(newPlayers);
+        }
+    };
+
 
     return (
         <div className="md:flex">
@@ -55,6 +64,7 @@ const Players = () => {
             <div className="md:w-1/3">
                 <Cart
                     selectedPlayers={selectedPlayers}
+                    handleRemoveFromCart={handleRemoveFromCart}
                 />
             </div>
         </div>
